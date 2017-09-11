@@ -1,0 +1,78 @@
+set nocompatible
+set encoding=utf8
+set history=500
+
+" Enable filetype plugins
+filetype plugin on
+filetype indent on
+
+" Configure backspace to act as it should
+set backspace=eol,start,indent
+set whichwrap+=<,>,h,l
+
+" KEY MAPPINGS
+" Set leader key and map some easy shortcuts 
+let mapleader = " "
+
+" Enter command mode without the use of the shift key
+nnoremap ; :
+
+" Set <jj> to be the escape sequence in input mode
+inoremap jj <esc>
+
+" Write and quit with leader key combo
+nmap <leader>w :w!<cr> 
+nmap <leader>q :q<cr>
+
+" Create new splits easier
+nmap <leader>vs :vsplit<cr>
+nmap <leader>vh :split<cr>
+
+" Smarter way to move between windows using Ctrl-j,k,h,l instead of C-W first
+map <C-j> <C-W>j
+map <C-k> <C-W>k
+map <C-h> <C-W>h
+map <C-l> <C-W>l
+
+" Tab management mappings
+map <leader>tn :tabnew<cr>
+map <leader>tc :tabclose<cr>
+map <leader>tm :tabmove
+map <leader>t<leader> :tabnext
+
+" Open new tab with the current buffer's path
+map <leader>T :tabedit <c-r>=expand("%:p:h")<cr>/
+
+" BEHAVIOR 
+" Ignore case when searching
+set ignorecase
+set smartcase
+
+" Highlight search and other features
+set hlsearch
+set incsearch
+
+" Use the system clipboard as the default copy register
+set clipboard=unnamed
+
+" Return to last edit position when opening files (You want this!)
+au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
+
+" LOOK AND FEEL
+syntax enable
+set ruler
+set t_Co=256
+
+" Always show status line
+set laststatus=2
+
+" Text and indentation 
+set expandtab
+set smarttab
+set shiftwidth=4
+set tabstop=4
+" Autoindent and smart indent
+set ai
+set si
+
+
