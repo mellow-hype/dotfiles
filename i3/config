@@ -17,12 +17,12 @@ font pango:Hack 10
 
 ########## Autolaunch ##########
 exec --no-startup-id nm-applet
-exec --no-startup-id xfsettingsd --sm-client-disable &
+# exec --no-startup-id xfsettingsd --sm-client-disable &
 exec --no-startup-id xfce4-power-manager
 exec xfce4-volumed
 exec --no-startup-id /usr/lib64/polkit-gnome/polkit-gnome-authentication-agent-1
 exec --no-startup-id nitrogen --restore
-exec --no-startup-id compton &
+# exec --no-startup-id compton &
 
 ######### Keybindings ##########
 
@@ -39,7 +39,7 @@ bindsym $mod+p exec slock
 bindsym $mod+x kill
 
 # start dmenu (a program launcher)
-bindsym $mod+d exec dmenu_run
+bindsym $mod+d exec rofi -show run 
 
 # change focus
 bindsym $mod+j focus left
@@ -171,7 +171,7 @@ bar {
             background $darkgrey 
             statusline $whitish
             focused_workspace $black $orange $black
-            active_workspace $darkgrey $darkgrey $color7
+            active_workspace $darkgrey $darkgrey $orange
             inactive_workspace $darkgrey $darkgrey $orange
             urgent_workspace $red $red $black
         }
