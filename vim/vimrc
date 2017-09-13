@@ -1,3 +1,5 @@
+execute pathogen#infect()
+
 set nocompatible
 set encoding=utf8
 set history=500
@@ -52,6 +54,12 @@ set smartcase
 set hlsearch
 set incsearch
 
+
+" Turn backup off, since most stuff is in SVN, git et.c anyway...
+set nobackup
+set nowb
+set noswapfile
+
 " Use the system clipboard as the default copy register
 set clipboard=unnamed
 
@@ -62,15 +70,25 @@ au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g
 syntax enable
 set ruler
 set t_Co=256
+set number
+set wildmenu
+set showmatch
+
+" Enable 256 colors palette in Gnome Terminal
+if $COLORTERM == 'gnome-terminal'
+     set t_Co=256
+     endif
 
 " Always show status line
 set laststatus=2
+" set statusline=\ %{HasPaste()}%F%m%r%h\ %w\ \ CWD:\ %r%{getcwd()}%h\ \ \ Line:\ %l\ \ Column:\ %c
 
 " Text and indentation 
 set expandtab
 set smarttab
 set shiftwidth=4
 set tabstop=4
+
 " Autoindent and smart indent
 set ai
 set si
