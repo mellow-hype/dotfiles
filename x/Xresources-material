@@ -40,16 +40,20 @@ rofi.lines:                          15
 rofi.columns:                        1
 ! Font to use
 rofi.font:                           liberation mono 11
+
 ! Foreground color
-rofi.fg:                             #03A9F4
+rofi.fg:                             #ECEFF1
+
 ! Background color
 rofi.bg:                             #263238
+
 ! Foreground color for active row
 rofi.fg-active:                      #03A9F4
+
 ! Foreground color for urgent row
 rofi.fg-urgent:                      #E91E63
 ! Foreground color for highlighted active row
-rofi.hlfg-active:                    #FFC107
+rofi.hlfg-active:                    #FFA000
 ! Foreground color for highlighted urgent row
 rofi.hlfg-urgent:                    #FDF6E3
 ! Background color for active row
@@ -63,9 +67,9 @@ rofi.hlbg-urgent:                    #DC322F
 ! Background color for alternating row
 rofi.bgalt:                          #263238
 ! Foreground color for highlighted row
-rofi.hlfg:                           #373b41
+rofi.hlfg:                           #FFA000
 ! Background color for highlighted row
-rofi.hlbg:                           #81a2be
+rofi.hlbg:                           #37474F
 ! Border color
 rofi.bc:                             #81a2be
 ! Use extended color scheme
