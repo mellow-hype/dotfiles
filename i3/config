@@ -10,12 +10,12 @@ font pango:Hack 10
 
 ########## Autolaunch ##########
 # exec --no-startup-id nm-applet
-exec --no-startup-id xfsettingsd --sm-client-disable &
+# exec --no-startup-id xfsettingsd --sm-client-disable &
 exec --no-startup-id xfce4-power-manager
 # exec xfce4-volumed
 exec --no-startup-id /usr/lib64/polkit-gnome/polkit-gnome-authentication-agent-1
 exec --no-startup-id nitrogen --restore
-# exec --no-startup-id compton &
+exec --no-startup-id compton &
 
 ######### Keybindings ##########
 
@@ -144,38 +144,45 @@ mode "resize" {
 bindsym $mod+r mode "resize"
 
 ########## Styling ##########
-set $black     #000000
-set $whitish #d3ebe9
+# MATERIAL
+set $white      #CFD8DC
+set $whitish    #ECEFF1
+set $darkgrey   #263238
+set $darkgrey2  #37474F
+set $orange1    #FF9800
+set $orange2    #FFA74D 
+set $yellow     #FFC107
+set $yellow2    #FFA000
+set $green      #8BC34A
+set $green2     #9CCC65
+set $blue       #03A9F4
+set $blue2      #81D4FA
+set $magenta    #E91E63
+set $magenta2   #AD1457
+set $black      #000005
 
-set $darkgrey #0c1014
-set $darkgrey2 #11151c
-set $orange #d26937
-
-set $red #c23127
-set $yellow #edb443
-
-# Start i3bar to display a workspace bar (plus the system information i3status
-# finds out, if available)
 bar {
         status_command i3blocks
         position top
 
         colors {
-            background $darkgrey 
-            statusline $whitish
-            focused_workspace $black $orange $black
-            active_workspace $darkgrey $darkgrey $orange
-            inactive_workspace $darkgrey $darkgrey $orange
-            urgent_workspace $red $red $black
+            background $darkgrey
+            statusline $yellow
+            
+            # outline, text, highlight
+            focused_workspace $darkgrey $yellow $darkgrey
+            active_workspace $darkgrey $darkgrey $yellow2
+            inactive_workspace $darkgrey $darkgrey $whitish
+            urgent_workspace $magenta $magenta $black
         }
 }
 
 #                       border  background      text        indicator   child-border
-client.focused          $orange    $orange      $black     $darkgrey2   $black
-client.focused_inactive $darkgrey  $darkgrey2   $black     $color0      $black 
+client.focused          $orange2    $darkgrey   $whitish     $darkgrey2   $black
+client.focused_inactive $darkgrey  $darkgrey2   $black     $darkgrey2      $black 
 client.unfocused        $darkgrey  $darkgrey    $black     $darkgrey    $black
-client.urgent           $red       $orange      $black     #555757      #404552
-client.background $color0 
+client.urgent           $magenta   $darkgrey    $white     $darkgrey      #404552
+client.background $darkgrey
 
 
 # Window management
