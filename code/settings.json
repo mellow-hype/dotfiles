@@ -1,0 +1,31 @@
+{
+    "workbench.colorTheme": "Material Theme",
+    "window.zoomLevel": 0,
+    "window.menuBarVisibility": "toggle",    
+    "python.linting.enabledWithoutWorkspace": false,
+    "typescript.check.npmIsInstalled": false,
+    "workbench.startupEditor": "newUntitledFile",
+    "rust.rustup": {
+        "toolchain": "stable-x86_64-unknown-linux-gnu"
+    },
+    "rust.mode": "legacy",
+    "materialTheme.cache.workbench.settings": {
+        "themeColours": "Darker",
+        "accent": "Yellow",
+        "accentPrevious": "Bright Teal"
+    },
+    "workbench.colorCustomizations": {
+        "activityBarBadge.background": "#FFA000",
+        "list.activeSelectionForeground": "#FFA000",
+        "list.inactiveSelectionForeground": "#FFA000",
+        "list.highlightForeground": "#FFA000",
+        "scrollbarSlider.activeBackground": "#FFA00050",
+        "editorSuggestWidget.highlightForeground": "#FFA000",
+        "textLink.foreground": "#FFA000",
+        "progressBar.background": "#FFA000",
+        "pickerGroup.foreground": "#FFA000",
+        "tab.activeBorder": "#FFA000"
+    },
+    "workbench.activityBar.visible": true,
+    "window.menuBarVisibility": "toggle"
+}
