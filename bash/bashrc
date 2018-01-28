@@ -114,4 +114,4 @@ export VISUAL
 EDITOR=vim
 export EDITOR
 
-source .bash_prompt
+source $HOME/.bash_prompt
