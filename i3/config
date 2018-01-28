@@ -12,6 +12,7 @@ font pango:Hack 10
 ########## Autolaunch ##########
 # exec --no-startup-id nm-applet
 # exec --no-startup-id xfsettingsd --sm-client-disable &
+exec --no-startup-id xmodmap ~/.xmodmap
 exec --no-startup-id xfce4-power-manager
 # exec xfce4-volumed
 exec --no-startup-id /usr/lib64/polkit-gnome/polkit-gnome-authentication-agent-1
@@ -145,59 +146,58 @@ mode "resize" {
 bindsym $mod+r mode "resize"
 
 ########## Styling ##########
-# MATERIAL
-set $white      #CFD8DC
-set $whitish    #ECEFF1
-set $darkgrey   #263238
-set $darkgrey2  #37474F
-set $orange1    #FF9800
-set $orange2    #FFA74D 
-set $yellow     #FFC107
-set $yellow2    #FFA000
-set $green      #8BC34A
-set $green2     #9CCC65
-set $blue       #03A9F4
-set $blue2      #81D4FA
-set $magenta    #E91E63
-set $magenta2   #AD1457
-set $black      #000005
+
+## SOLARIZED LIGHT
+set $bg         #fdf6e3 
+set $fg         #586e75
+set $white1     #93a1a1   
+set $white2     #fdf6e3
+set $red        #dc322f
+set $red2       #dc322f
+set $yellow     #b58900
+set $yellow2    #b58900
+set $green      #859900
+set $green2     #859900
+set $blue       #268bd2
+set $blue2      #268bd2
+set $cyan       #2aa198
+set $cyan2      #2aa198
+set $magenta    #6c71c4
+set $magenta2   #6c71c4
+set $black   #002b36
+set $black2   #657b83
 
 bar {
         status_command i3blocks
         position top
 
         colors {
-            background $darkgrey2
-            statusline $green
+            background $bg 
+            statusline $fg
             
-            # outline, text, highlight
-            focused_workspace $darkgrey $green2 $darkgrey
-            active_workspace $darkgrey $darkgrey $yellow2
-            inactive_workspace $darkgrey $darkgrey $whitish
+            # outline, bg, text
+            focused_workspace $black2 $fg $bg
+            active_workspace $black2 $bg $black2
+            inactive_workspace $black2 $bg $black2
             urgent_workspace $magenta $magenta $black
         }
 }
 
 #                       border  background      text        indicator   child-border
-client.focused          $darkgrey2    $darkgrey   $whitish     $green2   $whitish
-client.focused_inactive $darkgrey  $darkgrey2   $darkgrey    $darkgrey2      $black 
-client.unfocused        $darkgrey  $darkgrey    $whitish     $darkgrey    $black
-client.urgent           $magenta   $darkgrey    $white     $darkgrey      #404552
-client.background $darkgrey
+client.focused          $black    $fg      $fg     $white2   $black
+client.focused_inactive $white  $bg   $fg     $black2      $black 
+client.unfocused        $black  $bg    $fg     $white2    $black
+client.urgent           $red       $bg      $black     #555757      #404552
+client.background $fg
 
 
 # Window management
 #for_window [class="^.*"] border normal
-for_window [class="^.*"] border pixel 2
+for_window [class="^.*"] border pixel 1
 for_window [window_role="pop-up"] floating enable
 
-for_window [title="Chrome$"] border pixel 1 
 for_window [window_role="task_dialog"] floating enable
 for_window [title="Preferences$"] floating enable
 for_window [title="Oracle VM*"] floating enable
 for_window [title="File Manager$"] floating enable
 
-########## i3-gaps integration ##########
-#smart_gaps on
-#gaps inner 5
-#gaps outer 5
