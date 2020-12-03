@@ -1,0 +1,122 @@
+" PLUGIN SETTINGS
+call plug#begin('~/.vim/plugged')
+Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+
+" NerdTree
+Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
+call plug#end()
+
+" NERDTree plugin short-cut
+:nnoremap <C-g> :NERDTreeToggle<CR>
+
+" go-vim settings:
+let g:go_def_mode='gopls'
+let g:go_info_mode='gopls'
+let g:go_auto_type_info = 1
+
+" Basic settings
+set nocompatible
+set encoding=utf8
+set history=500
+
+" Enable filetype plugins
+filetype plugin indent on
+
+" Fold settings
+set foldmethod=syntax
+set foldnestmax=10
+set nofoldenable
+set foldlevel=0
+
+" Enable syntax highlighting/coloring
+syntax enable
+
+" Text and indentation 
+autocmd Filetype python setlocal expandtab tabstop=4 shiftwidth=4 softtabstop=4
+autocmd Filetype go setlocal tabstop=4 shiftwidth=4 softtabstop=4
+set shiftwidth=4
+set tabstop=4
+
+" Autoindent and smart indent
+set ai
+set si
+
+"" Look and feel 
+set t_Co=256
+set number
+set ruler
+set wildmenu
+set showmatch
+
+" Enable scroll and click to move cursor
+set mouse=a
+
+" Ignore case when searching
+set ignorecase
+set smartcase
+
+" Highlight search and other features
+set hlsearch
+set incsearch
+
+" Turn backup off, since most stuff is in SVN, git et.c anyway...
+set nobackup
+set nowb
+set noswapfile
+
+" Use the system clipboard as the default copy register
+set clipboard=unnamed
+
+" Return to last edit position when opening files (You want this!)
+au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
+
+" Enable 256 colors palette in Gnome Terminal
+if $COLORTERM == 'gnome-terminal'
+     set t_Co=256
+endif
+
+" Always show status line
+set laststatus=2
+" set statusline=\ %{HasPaste()}%F%m%r%h\ %w\ \ CWD:\ %r%{getcwd()}%h\ \ \ Line:\ %l\ \ Column:\ %c
+
+" Configure backspace to act as it should
+set backspace=eol,start,indent
+set whichwrap+=<,>,h,l
+
+" KEY MAPPINGS
+" Set leader key and map some easy shortcuts 
+let mapleader = " "
+
+" Enter command mode without the use of the shift key
+nnoremap ; :
+
+" Set <jj> to be the escape sequence in input mode
+inoremap jj <esc>
+
+" Write and quit with leader key combo
+nmap <leader>w :w!<cr> 
+nmap <leader>q :q<cr>
+
+" Create new splits easier
+nmap <leader>vs :vsplit<cr>
+nmap <leader>vh :split<cr>
+
+" Smarter way to move between windows using Ctrl-j,k,h,l instead of C-W first
+map <C-j> <C-W>j
+map <C-k> <C-W>k
+map <C-h> <C-W>h
+map <C-l> <C-W>l
+
+" Smarter way to move between buffers
+nmap <leader>b :bprevious<CR>
+nmap <leader>n :bnext<CR>
+
+" Tab management mappings
+map <leader>tn :tabnew<cr>
+map <leader>tc :tabclose<cr>
+map <leader>tm :tabmove
+map <leader>t<leader> :tabnext
+
+" Open new tab with the current buffer's path
+map <leader>T :tabedit <c-r>=expand("%:p:h")<cr>/
+
